@@ -41,11 +41,20 @@ services:
     volumes:
       - ./DockerConfig/Graylog/content_pack.json:/usr/share/graylog/data/contentpacks/content_pack.json
       
+  portainer:
+    image: portainer/portainer 
+    ports:
+    - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./DockerConfig/volumes/portainer:/data    
+      
   seo-analysis-ui:
     build: ./SEOAnalyserUI
     container_name: seo-analysis-ui
     volumes:
       - ./SEOAnalyserUI:/app
+      - /app/node_modules
     ports:
       - '3000:8000'
     environment:

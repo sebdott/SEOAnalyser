@@ -45,6 +45,7 @@ Once the environment is being brought up you will have the list of application r
 - **SEO-Analyser-UI** : localhost:3000
 - **SEO-Analyser-API** : localhost:801/swagger
 - **GrayLog** : localhost:9038
+- **Portainer** : localhost:9000
 
 
 ** GrayLog : Log Management : **  
@@ -52,6 +53,13 @@ Once the environment is being brought up you will have the list of application r
 link : localhost:9038 
 username : admin 
 password : admin
+```
+
+**Portainer : Docker Managmenet UI :  **
+```
+link : localhost:9000 
+username : seoadmin 
+password : seoadmin
 ```
 
 ** Sample Application Pictures : **  
