@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.6.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="NUglify" Version="1.5.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEOAnalyserAPI.Common\SEOAnalyserAPI.Common.csproj" />
+    <ProjectReference Include="..\SEOAnalyserAPI.Providers\SEOAnalyserAPI.Providers.csproj" />
+  </ItemGroup>
+
+</Project>

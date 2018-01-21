@@ -1,0 +1,4 @@
+*.min.js
+_*.js
+**/build/*
+dist/*

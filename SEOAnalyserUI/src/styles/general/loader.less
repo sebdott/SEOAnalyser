@@ -1,0 +1,93 @@
+@import '../variables.less';
+@import './layout.less';
+
+@-webkit-keyframes placeloader {
+    0% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes placeloader {
+    0% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes loadingBar {
+    from { left: -30%; width: 30% }
+    10% { width: 30% }
+    30% { width: 80% }
+    to { left: 100%; width: 30% }
+}
+
+.loader {
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: @size-5 auto;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+}
+
+.placeloader {
+    min-height: 1px;
+    background: linear-gradient( 285deg, rgba(174, 174, 174, 0) 25%, rgba(174, 174, 174, 0.5) 50%, rgba(174, 174, 174, 0) 75%); // background-color: @gray-5;
+    animation-name: placeloader;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+.ellipsisLoader,
+.ellipsisLoader__active {
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    height: 2px;
+    margin-left: 2px;
+    width: 2px;
+}
+
+.ellipsisLoader {
+    background-color: @gray-2;
+}
+
+.ellipsisLoader__active {
+    background-color: @yellow-1;
+}
+
+.loadingBar {
+    .clearfix;
+    margin: @size-0 auto @size-3 auto;    
+    background-color: @gray-4;
+    min-height: 2px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.loadingBar__loading {
+    .loadingBar;
+    span {
+        background-color: @blue-1;
+        display: inline-block;
+        min-height: 2px;
+        left: -30%;
+        position: absolute;
+        top: 0;
+        width: 30%;
+        animation-name: loadingBar;
+        animation-iteration-count: infinite;
+        animation-timing-function: @transition-timing;
+        animation-fill-mode: forwards;
+    }
+}

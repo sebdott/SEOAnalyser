@@ -1,0 +1,11 @@
+version: '3'
+services:
+  seo-analysis-ui:
+    build: .
+    container_name: seo-analysis-ui
+    volumes:
+      - .:/app
+    ports:
+      - '3000:8000'
+    environment:
+      - NODE_ENV=development

@@ -1,0 +1,112 @@
+@base-size: 16px;
+@font-family: "Arial";
+@font-family-courier: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+
+@base-black: #000000;
+@base-white: #ffffff;
+@white-1: #faf7f7;
+@red-1: #e4393c;
+@orange-1: #f26921;
+@green-1: #12b886;
+@green-2: #5CB85C;
+@green-3: #16c38d;
+@green-4: #40d96e;
+@yellow-1: #feb505;
+@blue-1: #106ddc;
+@blue-2: #0088ff;
+@blue-3: #45d2ff;
+@purple-1: #6741d9;
+@gray-1: #4c4c4c;
+@gray-2: #9a9a9a;
+@gray-3: #cccccc;
+@gray-4: #f2f2f2;
+@gray-5: #f9f9f9;
+@gray-6: #434a64;
+
+@size-0: 0.5rem; // 8px
+@size-1: 0.75rem; // 12px
+@size-2: 0.875rem; // 14px
+@size-3: 1rem; // 16px
+@size-4: 1.25rem; // 20px
+@size-5: 1.5rem; // 24px
+@size-6: 2.25rem; // 36px
+@size-7: 3rem; // 48px
+@size-8: 5rem; // 80px
+@size-9: 6rem; // 96px
+@transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+@bounchBack-timing: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+@loader-deg: 285deg;
+@loader-gradient: linear-gradient(
+    @loader-deg),
+    rgba(174,174,174,0) 25%,
+    rgba(174,174,174,0.5) 50%,
+    rgba(174,174,174,0) 75%;
+@page-width: 70rem;
+@carousel-height: 23.75rem;
+@carousel-width: 890px;
+@box-shadow: 0 2px 1px rgba(0,0,0, 0.1);
+@header-height: 1.875rem;
+@panelHeader-height: 2.063rem;
+@panel-margin: @size-0;
+@panel-center: ((@page-width - @panel-margin * 2) / 5) * 3;
+@panel-side: ((@page-width - @panel-margin * 2) / 5);
+@button-height: @size-6;
+@gray-3-radius: 6px;
+@nav-main-width: @page-width - @nav-side-width - @panel-margin;
+@nav-side-width: @panel-side;
+@banner-height: 18.75rem;
+
+@shadow-dp2: 0 2px 2px 0 rgba(67, 74, 100, 0.14), 0 1px 5px 0 rgba(67, 74, 100, 0.12), 0 3px 1px -2px rgba(67, 74, 100, 0.2);
+@shadow-dp3: 0 3px 4px 0 rgba(67, 74, 100, 0.14), 0 1px 8px 0 rgba(67, 74, 100, 0.12), 0 3px 3px -2px rgba(67, 74, 100, 0.4);
+@shadow-dp4: 0 4px 5px 0 rgba(67, 74, 100, 0.14), 0 1px 10px 0 rgba(67, 74, 100, 0.12), 0 2px 4px -1px rgba(67, 74, 100, 0.4);
+@shadow-dp6: 0 6px 10px 0 rgba(67, 74, 100, 0.14), 0 1px 18px 0 rgba(67, 74, 100, 0.12), 0 3px 5px -1px rgba(67, 74, 100, 0.4);
+@shadow-dp8: 0 8px 10px 1px rgba(67, 74, 100, 0.14), 0 3px 14px 2px rgba(67, 74, 100, 0.12), 0 5px 5px -3px rgba(67, 74, 100, 0.4);
+@shadow-dp12: 0 12px 16px 1px rgba(67, 74, 100, 0.14), 0 4px 22px 3px rgba(67, 74, 100, 0.12), 0 6px 7px -4px rgba(67, 74, 100, 0.4);
+@shadow-dp16: 0 16px 24px 2px rgba(67, 74, 100, 0.14), 0 6px 30px 5px rgba(67, 74, 100, 0.12), 0 8px 10px -5px rgba(67, 74, 100, 0.4);
+@insetShadow-dp2: inset 0 2px 2px 0 rgba(67, 74, 100, 0.14), inset 0 1px 5px 0 rgba(67, 74, 100, 0.12), inset 0 3px 1px -2px rgba(67, 74, 100, 0.2);
+@insetShadow-dp4: inset 0 4px 5px 0 rgba(67, 74, 100, 0.14),inset 0 1px 10px 0 rgba(67, 74, 100, 0.12), inset 0 2px 4px -1px rgba(67, 74, 100, 0.4);
+
+// playground
+@calRowBtnWith: 80px;
+@firstBtnPosition: translate3d(0 , 0, 0);
+@secondBtnPosition: translate3d((-@calRowBtnWith * 0.75) , 0, 0);
+@thirdBtnPosition: translate3d(((-@calRowBtnWith * 2) * 0.75) , 0, 0);
+@lastBtnPosition: translate3d(((-@calRowBtnWith * 3) * 0.75) , 0, 0);
+
+@confirmBtnSize: (@size-4 * 1.5) + (@size-0 * 2);
+@transformBefore: translate3d(-100%, -50%, 0);
+@transformAfter: translate3d(0, -50%, 0);
+@durationTime: 0.3;
+@spinDurationTime: 1;
+@duration: unit(@durationTime, s);
+@durationx2: unit(@durationTime * 2, s);;
+@durationx4: unit(@durationTime * 4, s);;
+@keyframes loadingSpinBefore {
+  0% { transform: rotate(0deg) @transformBefore }
+  100% { transform: rotate(360deg) @transformBefore }
+}
+@keyframes loadingSpinAfter {
+  0% { transform: rotate(0deg) @transformAfter }
+  100% { transform: rotate(360deg) @transformAfter }
+}
+@keyframes iconPopUp {
+  0% { transform: translate3d(0, 100%, 0) }
+  100% { transform: translate3d(0, -50%, 0) }
+}
+@keyframes notificationCountdown {
+  0% { transform: translate3d(0, -50%, 0) }
+  100% { transform: translate3d(50%, -50%, 0) }
+}
+@keyframes floatIn {
+  0% { transform: translate3d(0, -50%, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+
+@font-face {
+	font-family: 'iconFont';  /* project id 243979 */
+	src: url('../assets/fonts/iconfont.eot');
+	src: url('../assets/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+	url('../assets/fonts/iconfont.woff') format('woff'),
+	url('../assets/fonts/iconfont.ttf') format('truetype'),
+	url('../assets/fonts/iconfont.svg#iconfont') format('svg');
+}

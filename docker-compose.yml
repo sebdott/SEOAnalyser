@@ -1,0 +1,64 @@
+version: '3'
+
+services:  
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+      
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  elasticsearch:
+    image: "elasticsearch"
+    environment:
+      - cluster.name=graylog
+      - bootstrap.memory_lock=true
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  graylog:
+    image: graylog2/server
+    environment:
+      GRAYLOG_PASSWORD_SECRET: somepasswordpepper
+      GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      GRAYLOG_WEB_ENDPOINT_URI: http://localhost:9038/api
+      GRAYLOG_ELASTICSEARCH_HOSTS: http://elasticsearch:9200/
+      GRAYLOG_CONTENT_PACKS_AUTO_LOAD: content_pack.json
+      GRAYLOG_CONTENT_PACKS_LOADER_ENABLED: "true"
+      GRAYLOG_CONTENT_PACKS_DIR: data/contentpacks
+    links:
+      - mongodb:mongo
+      - elasticsearch:elasticsearch
+    ports:
+      - 9038:9000
+      - 12201:12201/udp
+      - 12202:12202/udp
+      - 1514:1514/udp
+    volumes:
+      - ./DockerConfig/Graylog/content_pack.json:/usr/share/graylog/data/contentpacks/content_pack.json
+      
+  seo-analysis-ui:
+    build: ./SEOAnalyserUI
+    container_name: seo-analysis-ui
+    volumes:
+      - ./SEOAnalyserUI:/app
+    ports:
+      - '3000:8000'
+    environment:
+      - NODE_ENV=development
+    links:
+      - seoanalyserapi
+            
+  seoanalyserapi:
+    image: seoanalyserapi    
+    build:
+      context: ./SEOAnalyserAPI
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 801:80
